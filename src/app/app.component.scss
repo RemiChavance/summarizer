@@ -1,0 +1,33 @@
+.input-container {
+    width: 70%; /* You can adjust the width as needed */
+    margin: 50px auto; /* Center the input on the screen */
+}
+  
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    height: 250px;
+}
+
+button {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.text {
+    color: #04AA6D;
+    font-size: 16px;
+}
+
+.result {
+    margin: 20px;
+}
