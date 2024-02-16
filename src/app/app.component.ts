@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.result$ = this.summerizeService.result$.pipe(
       tap(summary => {
+        this.displayedSummary = '';
         this.display(summary.split(' '));
         this.loading = false;
       })

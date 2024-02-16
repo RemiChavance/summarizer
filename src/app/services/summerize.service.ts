@@ -13,6 +13,7 @@ export class SummerizeService {
   constructor(private http: HttpClient) { }
 
   summerize(textToSummerize: string) {
+    this.result.next('');
 
     const url = 'https://api-inference.huggingface.co/models/Yuss68/HAR_model';
     const token = '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';
