@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.result$ = this.summerizeService.result$.pipe(
       tap(summary => {
         if (summary == '') return;
+        this.displayedSummary = '';
         this.display(summary.split(' '));
         this.loading = false;
       })
