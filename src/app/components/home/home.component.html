@@ -1,7 +1,7 @@
 <form class="input-container" (submit)="onSubmit()">
     <label class="text" for="largeTextInput">Enter Text:</label>
     <textarea type="text" id="largeTextInput" name="input" [(ngModel)]="inputText"></textarea>
-    <button type="submit">Summarize</button>
+    <button [disabled]="disableButton" [ngClass]="disableButton? 'disable' : ''" type="submit">Summarize</button>
     <span *ngIf="loading">LOADING ...</span>
 </form>
   

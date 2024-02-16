@@ -28,6 +28,15 @@ button {
     }
 }
 
+.disable {
+    background-color: #00603d;
+
+    &:hover {
+        cursor: not-allowed;
+        background-color: #2e2e2e;
+    }
+}
+
 .text {
     color: #04AA6D;
     font-size: 16px;

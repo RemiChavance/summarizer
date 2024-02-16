@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   displayedSummary: string = '';
 
   loading: boolean = false;
+  disableButton: boolean = false;
 
   constructor(private summerizeService: SummerizeService) { }
 
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.inputText == '') return;
+    this.disableButton = true;
     this.summerizeService.summerize(this.inputText);
     this.loading = true;
   }
@@ -38,6 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   display(summaryAsArray: string[]) {
     const intervalId = setInterval(() => {
       if (summaryAsArray.length == 0) { // stop condition
+        this.disableButton = false;
         clearInterval(intervalId);
       } else {
         const word = summaryAsArray.shift();
