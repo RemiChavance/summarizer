@@ -1,11 +1,5 @@
-<form class="input-container" (submit)="onSubmit()">
-  <label class="text" for="largeTextInput">Enter Text:</label>
-  <textarea type="text" id="largeTextInput" name="input" [(ngModel)]="inputText"></textarea>
-  <button type="submit">Summarize</button>
-  <span *ngIf="loading">LOADING ...</span>
-</form>
+<app-header></app-header>
 
-<div *ngIf="result$ | async as result" class="result">
-  <h1 class="text">AI answer :</h1>
-  <p>{{ displayedSummary }}</p>
-</div>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

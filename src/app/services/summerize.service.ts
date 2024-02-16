@@ -13,7 +13,7 @@ export class SummerizeService {
   constructor(private http: HttpClient) { }
 
   summerize(textToSummerize: string) {
-    this.result.next('');
+    this.newSummary('');
 
     const url = 'https://api-inference.huggingface.co/models/Yuss68/HAR_model';
     const token = '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';
@@ -25,8 +25,12 @@ export class SummerizeService {
 
     this.http.post<any>(url, JSON.stringify(textToSummerize), { headers }).pipe(
       tap(summary => {
-        this.result.next(summary[0].generated_text);
+        this.newSummary(summary[0].generated_text);
       })
     ).subscribe();
+  }
+
+  newSummary(summary: string) {
+    this.result.next(summary);
   }
 }
