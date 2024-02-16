@@ -10,4 +10,7 @@ Réalisé  par :
 Le dossier back contient notre IA ipynb.
 
 https://huggingface.co/Yuss68/HAR_model
+
+------
+
 https://summarizer-three-xi.vercel.app/home
