@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { SummerizeService } from 'src/app/services/summerize.service'; 
 
@@ -7,7 +7,7 @@ import { SummerizeService } from 'src/app/services/summerize.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   inputText: string = '';
   
@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.result$ = this.summerizeService.result$.pipe(
       tap(summary => {
+        if (summary == '') return;
         this.display(summary.split(' '));
         this.loading = false;
       })
@@ -47,4 +48,9 @@ export class HomeComponent implements OnInit {
       }
     }, 100);
   }
+
+  ngOnDestroy(): void {
+    this.summerizeService.newSummary('');
+  }
+
 }
